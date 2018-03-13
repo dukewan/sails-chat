@@ -1,0 +1,41 @@
+<div id="slack" class="ui grid container">
+  <div class="four wide column channels">
+    <div class="ui divided items channel-list">
+      <template v-for="channel in channels">
+        <div v-bind:class="{ item: true, channel: true, current: currentChannel.id == channel.id }" v-on:click="changeChannel(channel.id)">
+          # {{ channel.name }}
+        </div>
+      </template>
+    </div>
+    <div class="create-channel">
+      <i class="plus icon"></i>
+    </div>
+  </div>
+  <div class="twelve wide column channel-content" >
+    <div class="messages">
+      <div class="ui comments">
+        <h3 class="ui dividing header room-name">{{ currentChannel.name }}</h3>
+        <div class="comment" v-for="chat in messages">
+          <a class="avatar">
+            <img src="https://blogcdn1.secureserver.net/wp-content/uploads/2014/06/create-a-gravatar-beard-768x795.png">
+          </a>
+          <div class="content">
+            <a class="author">{{ chat.sender.fullName }}</a>
+            <div class="metadata">
+              <span class="date">Today at 5:42PM</span>
+            </div>
+            <div class="text">
+                {{ chat.message }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="user-input">
+      <div class="ui fluid action input">
+        <input type="text" placeholder="type something...">
+        <div class="ui blue button" v-on:click="sendMessage">Send</div>
+      </div>
+    </div>
+  </div>
+</div>

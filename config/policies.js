@@ -17,5 +17,8 @@ module.exports.policies = {
   'account/logout': true,
   'view-homepage-or-redirect': true,
   'deliver-contact-form-message': true,
-
+  'slack/*': true,
+  'channel/*': true,
+  'chat/*': true,
+  'user/*': true  
 };

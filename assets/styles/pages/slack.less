@@ -1,0 +1,72 @@
+#slack {
+  width: 900px;
+  margin: 0 auto;
+  height: 100%;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+
+  .channels {
+    background-color: #4D5250;
+    height: 100%;
+    border-right: 1px solid gray;
+    position: relative;
+
+
+    .channel {
+      color: #C5C6C6;
+      font-size: 1.3em;
+      cursor: pointer;
+      padding: 10px 5px !important;
+    }
+
+    .channel.current {
+      background-color: gray;
+    }
+
+    .create-channel {
+      position: absolute;
+      bottom: 20px;
+      text-align: center;
+      color: #fff;
+      width: 100%;
+      margin-left: -15px;
+      
+      .icon {
+        font-size: 30px;
+      }
+    }
+  }
+
+  .channel-content {
+    background-color: #fff;
+    padding: 0;
+    position: relative;
+
+    .messages {
+      width: 100%;
+      .room-name {
+        font-size: 1.5em;
+        border-bottom: 1px solid gray;
+        padding: 10px;
+        line-height: 1.5em;
+      }
+
+      .ui.comments {
+        width: 100% !important;
+        max-width: none !important;
+
+        .comment {
+          padding: 10px;
+        }
+      }
+    }
+
+    .user-input {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 10px 10px 30px 10px;
+      width: 100%;
+    }
+  }
+}

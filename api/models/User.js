@@ -154,6 +154,10 @@ email status until they click the link in the confirmation email.`
       example: 1502844074211
     },
 
+    gravatar: {
+      type: 'string'
+    },
+
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
     //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
@@ -163,6 +167,11 @@ email status until they click the link in the confirmation email.`
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
     // n/a
+
+    chats: {
+      collection: 'chat',
+      via: 'sender'
+    },
 
   },
 
