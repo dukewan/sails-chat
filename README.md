@@ -9,6 +9,7 @@ An online chat room built with Sails.js which demostrates the key features of Sa
 ## Set up
 
 ```
+npm install sails@beta -g
 npm install
 sails lift
 // visit http://localhost:1337/slack
