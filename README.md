@@ -1,6 +1,6 @@
 # Sails-chat
 
-An online chat room built with Sails.js which demostrates the key features of Sails:
+An online chat room built with Sails.js which demonstrates the key features of Sails:
 
 + Blueprints
 + Walterline
