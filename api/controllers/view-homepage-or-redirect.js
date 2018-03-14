@@ -12,7 +12,7 @@ module.exports = {
     success: {
       statusCode: 200,
       description: 'Requesting user is a guest, so show the public landing page.',
-      viewTemplatePath: 'pages/homepage.ejs'
+      viewTemplatePath: 'pages/slack.ejs'
     },
 
     redirect: {
@@ -26,10 +26,10 @@ module.exports = {
   fn: async function (inputs, exits) {
 
     if (this.req.me) {
-      throw {redirect:'/welcome'};
+      throw {redirect:'/slack'};
     }
 
-    return exits.success();
+    throw {redirect:'/slack'};
 
   }
 

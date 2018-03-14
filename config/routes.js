@@ -53,8 +53,10 @@ module.exports.routes = {
   'POST  /api/v1/entrance/update-password-and-login':    { action: 'entrance/update-password-and-login' },
   'POST  /api/v1/deliver-contact-form-message':          { action: 'deliver-contact-form-message' },
 
-  'PUT /slack/:id/join':                       { action: 'slack/join-chat' },
-  'POST /slack/:id/chat/:message':              { action: 'slack/chat' },
+  'PUT /slack/:id/join':                              { action: 'slack/join-chat' },
+  'POST /slack/:id/chat/:message':                    { action: 'slack/chat' },
+  'PUT /slack/:id/typing':                            { action: 'slack/typing' },
+  'PUT /slack/:id/stop-typing':                       { action: 'slack/stop-typing' },
 
 
 

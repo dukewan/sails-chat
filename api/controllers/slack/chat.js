@@ -3,14 +3,14 @@ module.exports = async function (req, res) {
     return res.badRequest();
   }
 
-  var createdChat = await Chat.create({
+  let createdChat = await Chat.create({
     message: req.param('message'),
     sender: req.me.id,
     channel: +req.param('id')
-  }).fetch();
-  console.log('------------------------------------');
-  console.log('createdChat', createdChat);
-  console.log('------------------------------------');
+  })
+  .fetch();
+  createdChat = await Chat.findOne({ id: createdChat.id }).populate('sender');
+  
   User.findOne({
     id: req.me.id
   }).exec((err, foundUser) => {

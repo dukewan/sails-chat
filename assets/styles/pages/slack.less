@@ -44,6 +44,9 @@
 
     .messages {
       width: 100%;
+      height: 100%;
+      overflow: hidden;
+
       .room-name {
         font-size: 1.5em;
         border-bottom: 1px solid gray;
@@ -54,9 +57,17 @@
       .ui.comments {
         width: 100% !important;
         max-width: none !important;
+        height: 100%;
+        overflow: hidden;
 
         .comment {
           padding: 10px;
+        }
+
+        .comment-wrapper {
+          height: 80%;
+          overflow-y: scroll;
+          overflow-x: hidden;
         }
       }
     }
@@ -65,8 +76,16 @@
       position: absolute;
       bottom: 0;
       left: 0;
-      padding: 10px 10px 30px 10px;
+      padding: 10px;
       width: 100%;
+      background-color: #fff;
+
+      .typing {
+        font-size: 0.8em;
+        color: gray;
+        display: inline-block;
+        margin-top: 5px;
+      }
     }
   }
 }

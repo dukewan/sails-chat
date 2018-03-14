@@ -8,34 +8,57 @@
       </template>
     </div>
     <div class="create-channel">
-      <i class="plus icon"></i>
+      <i class="plus icon" v-on:click="showCreateModal"></i>
     </div>
   </div>
   <div class="twelve wide column channel-content" >
     <div class="messages">
       <div class="ui comments">
-        <h3 class="ui dividing header room-name">{{ currentChannel.name }}</h3>
-        <div class="comment" v-for="chat in messages">
-          <a class="avatar">
-            <img src="https://blogcdn1.secureserver.net/wp-content/uploads/2014/06/create-a-gravatar-beard-768x795.png">
-          </a>
-          <div class="content">
-            <a class="author">{{ chat.sender.fullName }}</a>
-            <div class="metadata">
-              <span class="date">Today at 5:42PM</span>
-            </div>
-            <div class="text">
-                {{ chat.message }}
+        <h3 class="ui dividing header room-name">{{ currentChannel.name }} </h3>
+        <div class="comment-wrapper" id="comment-wrapper">
+          <div class="comment" v-for="chat in messages">
+            <a class="avatar">
+              <img v-bind:src="chat.sender.id | getAvatar">
+            </a>
+            <div class="content">
+              <a class="author">{{ chat.sender.fullName }}</a>
+              <div class="metadata">
+                <span class="date">{{ chat.createdAt | getTime }}</span>
+              </div>
+              <div class="text">
+                  {{ chat.message }}
+              </div>
             </div>
           </div>
+          <div id="bottom"></div>
         </div>
       </div>
     </div>
     <div class="user-input">
       <div class="ui fluid action input">
-        <input type="text" placeholder="type something...">
+        <input type="text" placeholder="type something..." v-model="input" v-on:keyup.enter="sendMessage" v-on:keydown="isTyping" v-on:blur="isNotTyping">
         <div class="ui blue button" v-on:click="sendMessage">Send</div>
+      </div>
+      <span v-if="typing" class="typing">{{ typing }} is typing 
+      <i class="ellipsis horizontal icon" id="typing-icon"></i></span>
+      <span v-else class="typing">&nbsp;</span>
+    </div>
+    <!-- create channel -->
+    <div class="ui tiny modal">
+      <i class="close icon"></i>
+      <div class="header">
+        Create a channel
+      </div>
+      <div class="content">
+          <div class="ui fluid input">
+          <input type="text" placeholder="the name of channel" v-model="channelInput">
+        </div>
+      </div>
+      <div class="actions">
+        <div class="ui cancel button">Cancel</div>
+        <div class="ui button" v-on:click="createChannel">Submit</div>
       </div>
     </div>
   </div>
 </div>
+<%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
